@@ -3,7 +3,7 @@
 Purpose
 -------
 
-This repository contains an end-to-end Playwright + TypeScript test that verifies the primary guest checkout flow on the official Shopware 6 public demo storefront.
+This repository contains an end-to-end Playwright + TypeScript test that verifies the primary guest checkout flow on the Shopware 6 public demo storefront.
 
 Target
 ------
@@ -40,8 +40,7 @@ Notes
 -----
 
 - Tests are written in TypeScript using Playwright Test and the built-in `expect` assertions.
-- The primary E2E spec is `tests/guest-checkout.spec.ts` and uses helper functions and semantic selectors where possible to be resilient against UI changes.
- - The provided automation is intentionally stabilised to reach the checkout page reliably using search and robust cookie handling. Final order confirmation (placing the order) is not automated here because selectors for payment/confirmation are environment-specific and should be recorded/verified with Playwright codegen before adding.
+- The primary E2E spec is `tests/guest-checkout.spec.ts` and uses robust selectors and cookie handling to reach the checkout page.
 
 What I would improve with more time
 -----------------------------------
@@ -64,4 +63,4 @@ The automated Playwright test currently verifies the main storefront flow up to 
 - Proceeds to checkout
 - Verifies that the checkout/account page is reached
 
-The final order placement step is not fully automated yet because the public demo checkout form and payment selectors require additional stabilization with Playwright codegen. With more time, I would extend the test to fill the guest checkout form, select Cash on delivery, and verify the final order confirmation page.
+The final order placement step is not automated. The public demo checkout form and payment selectors require additional stabilization with Playwright codegen before automating order placement.

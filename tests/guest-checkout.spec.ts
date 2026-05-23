@@ -13,17 +13,16 @@ test('guest visitor can find a product, add to cart and reach checkout', async (
 
   await expect(page).toHaveURL(/shopware6-demo/);
 
-  // Open category page directly to avoid unstable search result selectors
+  // Open Clothing category
   await page.goto('https://www.shopware6-demo.development-s25.com/Clothing/');
 
   await expect(page.locator('body')).toContainText(/Clothing|Women|Men|€|Warenkorb/i);
 
-  // Prefer product container link; fall back to image link if needed.
+  // Select first product container
   const firstProduct = page.locator('.product-box').first();
 
   await expect(firstProduct).toBeVisible({ timeout: 15000 });
   await firstProduct.click().catch(async () => {
-    // If clicking container fails, click the product image link as a fallback
     const firstProductImage = page.locator('.product-image-link').first();
     await expect(firstProductImage).toBeVisible({ timeout: 15000 });
     await firstProductImage.click();

@@ -1,7 +1,7 @@
 {
   "name": "shopware-qa-task",
   "version": "1.0.0",
-  "description": "",
+  "description": "Playwright QA automation exercise for Shopware 6 storefront guest checkout flow",
   "main": "index.js",
   "scripts": {},
   "keywords": [],
